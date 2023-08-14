@@ -1,22 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+    <title>Card game</title>
+    <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-    <div>
-        <div>
-            <p>Выбери сложность</p>
-            <div>
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
+    <div class="container">
+    </div>
+
+    <div class="modal">
+        <div class="modal-box">
+            <div class="box-text">
+                <p class="text">Выбери сложность</p>
             </div>
-            <button>Старт</button>
+            <div class="menu-difficulty">
+                <label class="menu-choice">
+                    <input type="radio" name="difficulty" id="easy" value="1" checked>
+                    <span class="menu-text">1</span>
+                </label>
+                <label class="menu-choice">
+                    <input type="radio" name="difficulty" id="medium" value="2">
+                    <span class="menu-text">2</span>
+                </label>
+                <label class="menu-choice">
+                    <input type="radio" name="difficulty" id="hard" value="3">
+                    <span class="menu-text">3</span>
+                </label>
+                </div>
+            <form class="box-button">
+                <button class="game-start">Старт</button>
+            </form>
         </div>
     </div>
 </body>
+
 </html>
