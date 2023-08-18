@@ -1,9 +1,10 @@
+const form = document.querySelector('form');
 const modal = document.querySelector('.modal');
 const gameStartButton = document.querySelector('.game-start');
 
-gameStartButton.addEventListener('click', (event) => {
+form.addEventListener('submit', (event) => {
   event.preventDefault();
-  console.log('клик');
+  console.log('submit');
   
   const choiceDifficulty = document.querySelector('input[name="difficulty"]:checked');
 

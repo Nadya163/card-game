@@ -107,13 +107,6 @@ body {
     background-color: #0080C1;
   }
 
-.box-button {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 67px;
-}
-
 .game-start {
     width: 246px;
     height: 48px;
@@ -129,6 +122,8 @@ body {
     line-height: 32px; /* 133.333% */
     border: none;
     background: var(--salad-60, #7AC100);
+    margin-top: 67px;
+    margin-left: 117px;
 }
 
 .game-start:hover {
