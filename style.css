@@ -82,6 +82,11 @@ body {
     background-color: #ffffff;
 }
 
+.menu-choice:hover {
+    background: #0080C1;
+    cursor: pointer;
+}
+
 .menu-text {
     color: var(--blue-100, #0080C1);
     text-align: center;
@@ -89,15 +94,18 @@ body {
     font-size: 64px;
     font-style: normal;
     font-weight: 400;
-    line-height: 72px; /* 112.5% */
+    line-height: 98px; /* 112.5% */
+    border-radius: 12px;
 }
 
-.box-button {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 67px;
+.menu-text:hover {
+    color: #FFF;
 }
+
+.menu-choice input[type="radio"]:checked+span {  
+    color: #ffffff;
+    background-color: #0080C1;
+  }
 
 .game-start {
     width: 246px;
@@ -114,4 +122,11 @@ body {
     line-height: 32px; /* 133.333% */
     border: none;
     background: var(--salad-60, #7AC100);
+    margin-top: 67px;
+    margin-left: 117px;
+}
+
+.game-start:hover {
+    background-color: #008000;
+    cursor: pointer;
 }
