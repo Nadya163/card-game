@@ -77,17 +77,3 @@ export function createCardArray(initialCount) {
       break;
   }
 }
-
-// cards.forEach((card, index) => {
-//   card.classList.add("open");
-//   const cardImage = duplicateCard[index];
-//   card.style.backgroundImage = `url(${cardImage})`;
-//   setTimeout(() => {
-//     card.classList.add("open");
-//     card.style.backgroundImage = `url(/static/img/shirt.jpg)`;
-//   }, 5000);
-//   card.addEventListener("click", () => {
-//     card.classList.add("open");
-//     card.style.backgroundImage = `url(${cardImage})`;
-//   });
-// });
