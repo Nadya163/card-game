@@ -1,6 +1,5 @@
-import { renderEasyCard } from "./render-easy.js";
-import { renderMediumCard } from "./render-medium.js"
-import { renderHardCard } from "./render-hard.js";
+import { renderLevelCard } from "./render-level.js";
+
 export function renderModal() {
   const modalElement = document.querySelector(".modal");
   const modalHtml = `
@@ -45,15 +44,15 @@ export function renderModal() {
 
       if (difficulty === "1") {
         modal.style.display = "none";
-        renderEasyCard();
+        renderLevelCard(6);
         console.log("Первый уровень сложности 6 карт");
       } else if (difficulty === "2") {
         modal.style.display = "none";
-        renderMediumCard();
+        renderLevelCard(12);
         console.log("Первый уровень сложности 12 карт");
       } else if (difficulty === "3") {
         modal.style.display = "none";
-        renderHardCard();
+        renderLevelCard(18);
         console.log("Первый уровень сложности 18 карт");
       }
     } else {

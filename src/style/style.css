@@ -176,62 +176,23 @@ button {
 .card {
   width: 95px;
   height: 133px;
-  background-image: url("/src/img/рубашка\ \(1\).jpg");
+  background-image: url("/src/static/img/shirt.jpg");
   border-radius: 4px;
   transition: 1s;
 }
 
-/* Легкий уровень сложности */
-.easy {
-  width: 380px;
+.level {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.ace-of-spades.open {
-  background-image: url("/src/img/туз\ пики.jpg");
+.open {
   transform: rotateY(180deg);
 }
 
-.ace-of-hearts.open {
-  background-image: url("/src/img/туз\ черви.jpg");
-  transform: rotateY(180deg);
-}
-
-.ten-hearts.open {
-  background-image: url("/src/img/10\ черви.jpg");
-  transform: rotateY(180deg);
-}
-
-.seven-crosses.open {
-  background-image: url("/src/img/7\ крести.jpg");
-  transform: rotateY(180deg);
-}
-
-.seven-diamonds.open {
-  background-image: url("/src/img/7\ бубны.jpg");
-  transform: rotateY(180deg);
-}
-
-.ten-crosses.open {
-  background-image: url("/src/img/10\ крести.jpg");
-  transform: rotateY(180deg);
-}
-
-/* Средний уровень сложности */
-.medium {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-/* Сложный уровень сложности */
-.hard {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-  justify-content: center;
+.card.successfully {
+  opacity: 0.5;
+  pointer-events: none;
 }
