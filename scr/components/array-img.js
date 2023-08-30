@@ -1,17 +1,3 @@
-export function shuffle(array) {
-  let currentIndex = array.length,  randomIndex;
-
-  while (currentIndex > 0) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex], array[currentIndex]];
-  }
-
-  return array;
-}
-
 export const duplicateArray = (array) => {
   let duplicatedArray = [];
 
@@ -19,7 +5,20 @@ export const duplicateArray = (array) => {
     duplicatedArray.push(item, item);
   });
 
-  return shuffle(duplicatedArray);
+  let shuffledArray = duplicatedArray.slice();
+
+  let currentIndex = duplicatedArray.length, randomIndex;
+
+  while (currentIndex > 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    [shuffledArray[currentIndex], shuffledArray[randomIndex]] = [
+      shuffledArray[randomIndex], shuffledArray[currentIndex]
+    ];
+  }
+
+  return shuffledArray;
 };
   
 export function createCardArray(initialCount) {
@@ -62,10 +61,6 @@ export function createCardArray(initialCount) {
     "/static/img/aceOfHearts.jpg",
   ];
 
-  // let randomCard;
-  // const randomIndex = Math.floor(Math.random() * 36);
-  // randomCard = cards[randomIndex];
-
   switch (initialCount) {
     case 6:
       return cards.slice(0, 3);
@@ -74,6 +69,6 @@ export function createCardArray(initialCount) {
     case 18:
       return cards.slice(0, 9);
     default:
-      break;
+      throw new Error(`Invalid initial count: ${initialCount}`);
   }
 }

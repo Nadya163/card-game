@@ -176,7 +176,7 @@ button {
 .card {
   width: 95px;
   height: 133px;
-  background-image: url("/src/static/img/shirt.jpg");
+  background-position: center center;
   border-radius: 4px;
   transition: 1s;
 }
@@ -189,7 +189,8 @@ button {
 }
 
 .open {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) scaleX(-1);
+  background-position: center;
 }
 
 .card.successfully {

@@ -1,5 +1,5 @@
 import { renderHeader } from "./render-header";
-import { createCardArray, duplicateArray, shuffle } from "./array-img.js";
+import { createCardArray, duplicateArray } from "./array-img.js";
 
 export function renderLevelCard(numCards) {
   const cardElement = document.querySelector(".game-level");
@@ -16,7 +16,6 @@ export function renderLevelCard(numCards) {
   const cards = document.querySelectorAll(".card");
   const cardCreate = createCardArray(numCards);
   const duplicateCard = duplicateArray(cardCreate);
-  shuffle(duplicateCard);
   console.log(duplicateCard);
   let openedCards = [];
 
