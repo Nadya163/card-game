@@ -8,7 +8,7 @@ const isProduction = process.env.NODE_ENV === "production" ? "production" : "dev
 
 
 module.exports = {
-    entry: "./scr/script.js",
+    entry: "./src/script.js",
     mode: isProduction ? "production" : "development",
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -33,13 +33,13 @@ module.exports = {
     },
     plugins: [
         new CopyPlugin({
-            patterns: [{ from: "./scr/static", to: "static" }],
+            patterns: [{ from: "./src/static", to: "static" }],
         }),
         new HtmlWebpackPlugin({
-            template: "./scr/index.html",
+            template: "./src/index.html",
         }),
         new MiniCssExtractPlugin({
-            filename: './scr/style/style.css',
+            filename: './src/style/style.css',
         })
     ],
     optimization: {

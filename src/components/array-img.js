@@ -61,13 +61,17 @@ export function createCardArray(initialCount) {
     "/static/img/aceOfHearts.jpg",
   ];
 
+  let randomCard;
+  const randomIndex = Math.floor(Math.random() * 36);
+  randomCard = cards[randomIndex];
+
   switch (initialCount) {
     case 6:
-      return cards.slice(0, 3);
+      return cards.slice(0, 3).concat(randomCard);
     case 12:
-      return cards.slice(0, 6);
+      return cards.slice(0, 6).concat(randomCard);
     case 18:
-      return cards.slice(0, 9);
+      return cards.slice(0, 9).concat(randomCard);
     default:
       throw new Error(`Invalid initial count: ${initialCount}`);
   }
