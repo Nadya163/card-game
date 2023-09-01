@@ -36,7 +36,7 @@ export function renderModal() {
     console.log("submit");
 
     const choiceDifficulty = document.querySelector(
-      'input[name="difficulty"]:checked',
+      'input[name="difficulty"]:checked'
     );
 
     if (choiceDifficulty) {

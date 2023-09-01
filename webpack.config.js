@@ -39,7 +39,7 @@ module.exports = {
             template: "./src/index.html",
         }),
         new MiniCssExtractPlugin({
-            filename: './src/style/style.css',
+            filename: './style/style.css',
         })
     ],
     optimization: {

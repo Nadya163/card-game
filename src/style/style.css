@@ -3,8 +3,12 @@
   src: url("./stratosskyeng-regular.otf");
 }
 
-body {
+* {
+  margin: 0;
   padding: 0;
+ }
+
+body {
   background: var(--blue-120, #004980);
   width: 1024px;
   height: 774px;
@@ -93,7 +97,7 @@ body {
   font-size: 64px;
   font-style: normal;
   font-weight: 400;
-  line-height: 98px; /* 112.5% */
+  line-height: 98px;
   border-radius: 12px;
 }
 
@@ -127,7 +131,7 @@ button {
   margin-left: 117px;
 }
 
-.game-start:hover {
+button:hover {
   background-color: #008000;
   cursor: pointer;
 }
@@ -139,7 +143,7 @@ button {
 }
 
 .timer-box {
-  width: 155px;
+  width: 164px;
   height: 91px;
   margin-top: 19px;
 }
@@ -197,3 +201,91 @@ button {
   opacity: 0.5;
   pointer-events: none;
 }
+
+.win-lost-img {
+  padding-top: 26px;
+}
+
+.box-text-result {
+  margin-top: 9px;
+
+}
+
+.text-resulte {
+  color: var(--blue-120, #004980);
+font-variant-numeric: lining-nums proportional-nums;
+font-family: StratosSkyeng;
+font-size: 40px;
+font-style: normal;
+font-weight: 400;
+line-height: 48px;
+}
+
+.menu-timer {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timer-text {
+  color: #000;
+font-variant-numeric: lining-nums proportional-nums;
+font-family: StratosSkyeng;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: 32px;
+}
+
+.timer-text-time {
+  padding-top: 10px;
+  color: #000;
+font-family: StratosSkyeng;
+font-size: 64px;
+font-style: normal;
+font-weight: 400;
+line-height: 72px;
+}
+
+.game-restart {
+  margin-top: 40px;
+}
+
+.modal-win-lost {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 99998;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  background-color: rgba(0, 73, 128, 0.8);
+  opacity: 0;
+  transition: opacity 0.4s, visibility 0.4s;
+}
+
+.modal-win-lost.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-box-win-lost {
+  width: 480px;
+  height: 459px;
+  border-radius: 12px;
+  background: #c2f5ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: scale(0);
+  transition: transform 0.8s;
+}
+
+.modal-win-lost.open .modal-box-win-lost {
+  transform: scale(1);
+}
+  

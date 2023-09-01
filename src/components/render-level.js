@@ -1,5 +1,6 @@
 import { renderHeader } from "./render-header";
 import { createCardArray, duplicateArray } from "./array-img.js";
+import { renderLost, renderWin } from "./render-win-lost.js";
 
 export function renderLevelCard(numCards) {
   const cardElement = document.querySelector(".game-level");
@@ -41,7 +42,15 @@ export function renderLevelCard(numCards) {
             openedCards = [];
             ferstCard.classList.add("successfully");
             secondCard.classList.add("successfully");
-            alert("Вы победили")
+            if (ferstImage === secondImage) {
+              openedCards = [];
+              ferstCard.classList.add("successfully");
+              secondCard.classList.add("successfully");
+              const allCardsMatched = Array.from(document.querySelectorAll(".card")).every(card => card.classList.contains("successfully"));
+              if (allCardsMatched) {
+                renderWin();
+              }
+            }
           } else {
             setTimeout(() => {
               ferstCard.classList.remove("open");
@@ -49,7 +58,7 @@ export function renderLevelCard(numCards) {
               secondCard.classList.remove("open");
               secondCard.style.backgroundImage = `url(/static/img/shirt.jpg)`;
               openedCards = [];
-              alert("вы проиграли")
+              renderLost();
             }, 1000);
           }
         }

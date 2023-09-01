@@ -20,6 +20,18 @@ export const duplicateArray = (array) => {
 
   return shuffledArray;
 };
+// function generateArray(array, initialCount) {
+//   let newArray = [];
+
+//   for (let i = 0; i < initialCount / 2; i++) {
+//     newArray.push(array[Math.floor(Math.random() * array.length)]);
+//   }
+
+//   newArray = newArray.concat(newArray);
+
+//   newArray.sort(() => Math.random() - 0.5);
+//   return newArray;
+// }
   
 export function createCardArray(initialCount) {
   const cards = [
@@ -58,20 +70,16 @@ export function createCardArray(initialCount) {
     "/static/img/aceOfDiamonds.jpg",
     "/static/img/aceOfCross.jpg",
     "/static/img/aceOfSpades.jpg",
-    "/static/img/aceOfHearts.jpg",
+    "/static/img/aceOfHearts.jpg"
   ];
-
-  let randomCard;
-  const randomIndex = Math.floor(Math.random() * 36);
-  randomCard = cards[randomIndex];
 
   switch (initialCount) {
     case 6:
-      return cards.slice(0, 3).concat(randomCard);
+      return cards.slice(0, 3);
     case 12:
-      return cards.slice(0, 6).concat(randomCard);
+      return cards.slice(0, 6);
     case 18:
-      return cards.slice(0, 9).concat(randomCard);
+      return cards.slice(0, 9);
     default:
       throw new Error(`Invalid initial count: ${initialCount}`);
   }
