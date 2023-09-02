@@ -22,10 +22,12 @@ export function renderWin() {
 
   const modal = document.querySelector(".modal");
   const buttonElement = document.querySelector(".game-restart");
+  const gameLevelElement = document.querySelector(".game-level");
+  const headerElement = document.querySelector(".header");
 
   buttonElement.addEventListener("click", () => {
-    const addElement = document.querySelector(".add");
-    addElement.innerHTML = "";
+    gameLevelElement.innerHTML = "";
+    headerElement.innerHTML = "";
   modal.style.display = "";
   winElement.classList.remove("open");
   renderModal();
@@ -54,10 +56,12 @@ export function renderLost() {
 
   const modal = document.querySelector(".modal");
   const buttonElement = document.querySelector(".game-restart");
+  const gameLevelElement = document.querySelector(".game-level");
+  const headerElement = document.querySelector(".header");
 
   buttonElement.addEventListener("click", () => {
-    const addElement = document.querySelector(".add");
-    addElement.innerHTML = "";
+    gameLevelElement.innerHTML = "";
+    headerElement.innerHTML = "";
     modal.style.display = "";
     lostElement.classList.remove("open");
     renderModal();
