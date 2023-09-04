@@ -1,37 +1,23 @@
-export const duplicateArray = (array) => {
-  let duplicatedArray = [];
+export function generateArray(array, initialCount) {
+  let newArray = [];
 
-  array.forEach((item) => {
-    duplicatedArray.push(item, item);
-  });
-
-  let shuffledArray = duplicatedArray.slice();
-
-  let currentIndex = duplicatedArray.length, randomIndex;
-
-  while (currentIndex > 0) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    [shuffledArray[currentIndex], shuffledArray[randomIndex]] = [
-      shuffledArray[randomIndex], shuffledArray[currentIndex]
-    ];
+  for (let i = 0; i < initialCount / 2; i++) {
+    newArray.push(array[Math.floor(Math.random() * array.length)]);
   }
 
-  return shuffledArray;
-};
-// function generateArray(array, initialCount) {
-//   let newArray = [];
+  newArray = newArray.concat(newArray);
 
-//   for (let i = 0; i < initialCount / 2; i++) {
-//     newArray.push(array[Math.floor(Math.random() * array.length)]);
-//   }
+  newArray.sort(() => Math.random() - 0.5);
+  return newArray;
+}
 
-//   newArray = newArray.concat(newArray);
-
-//   newArray.sort(() => Math.random() - 0.5);
-//   return newArray;
-// }
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
   
 export function createCardArray(initialCount) {
   const cards = [
@@ -73,13 +59,15 @@ export function createCardArray(initialCount) {
     "/static/img/aceOfHearts.jpg"
   ];
 
+  const shuffledCards = shuffleArray(cards);
+
   switch (initialCount) {
     case 6:
-      return cards.slice(0, 3);
+      return shuffledCards.slice(0, 3);
     case 12:
-      return cards.slice(0, 6);
+      return shuffledCards.slice(0, 6); 
     case 18:
-      return cards.slice(0, 9);
+      return shuffledCards.slice(0, 9);
     default:
       throw new Error(`Invalid initial count: ${initialCount}`);
   }

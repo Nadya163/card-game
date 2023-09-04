@@ -1,3 +1,4 @@
+import { stopTimer } from "./render-header.js";
 import { renderModal } from "./render-modal.js";
 
 export function renderWin() {
@@ -28,9 +29,10 @@ export function renderWin() {
   buttonElement.addEventListener("click", () => {
     gameLevelElement.innerHTML = "";
     headerElement.innerHTML = "";
-  modal.style.display = "";
-  winElement.classList.remove("open");
-  renderModal();
+    modal.style.display = "";
+    winElement.classList.remove("open");
+    
+    renderModal();
   })
 }
 
@@ -64,6 +66,7 @@ export function renderLost() {
     headerElement.innerHTML = "";
     modal.style.display = "";
     lostElement.classList.remove("open");
+    stopTimer();
     renderModal();
   })
 } 

@@ -1,5 +1,5 @@
-import { renderHeader } from "./render-header";
-import { createCardArray, duplicateArray } from "./array-img.js";
+import { renderHeader, startTimer } from "./render-header";
+import { generateArray, createCardArray } from "./array-img.js";
 import { renderLost, renderWin } from "./render-win-lost.js";
 
 export function renderLevelCard(numCards) {
@@ -15,18 +15,18 @@ export function renderLevelCard(numCards) {
   renderHeader();
 
   const cards = document.querySelectorAll(".card");
-  const cardCreate = createCardArray(numCards);
-  const duplicateCard = duplicateArray(cardCreate);
-  console.log(duplicateCard);
+  const cardCreate = generateArray(createCardArray(numCards), numCards);
+  console.log(cardCreate);
   let openedCards = [];
 
   cards.forEach((card, index) => {
     card.classList.add("open");
-    const cardImage = duplicateCard[index];
+    const cardImage = cardCreate[index];
     card.style.backgroundImage = `url(${cardImage})`;
     setTimeout(() => {
       card.classList.remove("open");
       card.style.backgroundImage = `url(/static/img/shirt.jpg)`;
+      setInterval(startTimer, 1000);
     }, 5000);
     card.addEventListener("click", () => {
       if (openedCards.length < 2) {
