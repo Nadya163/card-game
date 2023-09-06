@@ -1,5 +1,5 @@
-import { stopTimer } from "./render-header.js";
 import { renderModal } from "./render-modal.js";
+import { stopTimer } from "./render-header.js";
 
 export function renderWin() {
   const winElement = document.querySelector(".modal-win-lost");
@@ -31,13 +31,14 @@ export function renderWin() {
     headerElement.innerHTML = "";
     modal.style.display = "";
     winElement.classList.remove("open");
-    
+    stopTimer();
     renderModal();
   })
 }
 
 export function renderLost() {
   const lostElement = document.querySelector(".modal-win-lost");
+  stopTimer();
   const lostHtml = `
   <div class="modal-box-win-lost">
   <div class="win-lost-img">

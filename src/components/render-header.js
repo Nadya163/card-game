@@ -17,7 +17,6 @@ export function renderHeader() {
   <button class="game-begin">Начать заново</button>
     `;
     headerElement.innerHTML = headerHtml;
-
 }
 
 let minutes = 0;
@@ -30,16 +29,19 @@ export function startTimer() {
     startTime = performance.now();
   }
 
-  const elapsed = Math.floor((performance.now() - startTime) / 1000);
-  minutes = Math.floor(elapsed / 60);
-  seconds = elapsed % 60;
+  interval = setInterval(() => {
+    const elapsed = Math.floor((performance.now() - startTime) / 1000);
+    minutes = Math.floor(elapsed / 60);
+    seconds = elapsed % 60;
+    updateTimer();
+  }, 1000);
+}
 
+function updateTimer() {
   const minutesElement = document.querySelector(".interval.minutes");
   const secondsElement = document.querySelector(".interval.seconds");
   minutesElement.innerHTML = minutes > 9 ? minutes : "0" + minutes;
   secondsElement.innerHTML = seconds > 9 ? seconds : "0" + seconds;
-
-  requestAnimationFrame(startTimer);
 }
 
 export function stopTimer() {

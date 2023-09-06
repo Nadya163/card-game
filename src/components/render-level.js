@@ -1,6 +1,8 @@
-import { renderHeader, startTimer } from "./render-header";
+import { renderHeader, startTimer, stopTimer } from "./render-header";
 import { generateArray, createCardArray } from "./array-img.js";
 import { renderLost, renderWin } from "./render-win-lost.js";
+
+let timerInterval;
 
 export function renderLevelCard(numCards) {
   const cardElement = document.querySelector(".game-level");
@@ -26,7 +28,7 @@ export function renderLevelCard(numCards) {
     setTimeout(() => {
       card.classList.remove("open");
       card.style.backgroundImage = `url(/static/img/shirt.jpg)`;
-      setInterval(startTimer, 1000);
+      timerInterval = setInterval(startTimer, 100);
     }, 5000);
     card.addEventListener("click", () => {
       if (openedCards.length < 2) {
@@ -46,7 +48,9 @@ export function renderLevelCard(numCards) {
               openedCards = [];
               ferstCard.classList.add("successfully");
               secondCard.classList.add("successfully");
-              const allCardsMatched = Array.from(document.querySelectorAll(".card")).every(card => card.classList.contains("successfully"));
+              const allCardsMatched = Array.from(
+                document.querySelectorAll(".card"),
+              ).every((card) => card.classList.contains("successfully"));
               if (allCardsMatched) {
                 renderWin();
               }
@@ -59,8 +63,11 @@ export function renderLevelCard(numCards) {
               secondCard.style.backgroundImage = `url(/static/img/shirt.jpg)`;
               openedCards = [];
               renderLost();
+              clearInterval(timerInterval);
+              stopTimer();
             }, 1000);
           }
+          clearInterval(timerInterval);
         }
       }
     });
