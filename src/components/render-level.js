@@ -1,8 +1,6 @@
-import { renderHeader, startTimer, stopTimer } from "./render-header";
+import { renderHeader, startTimer } from "./render-header";
 import { generateArray, createCardArray } from "./array-img.js";
 import { renderLost, renderWin } from "./render-win-lost.js";
-
-let timerInterval;
 
 export function renderLevelCard(numCards) {
   const cardElement = document.querySelector(".game-level");
@@ -14,6 +12,7 @@ export function renderLevelCard(numCards) {
 
   cardHtml += `</div>`;
   cardElement.innerHTML = cardHtml;
+  cardElement.classList.remove("hide");
   renderHeader();
 
   const cards = document.querySelectorAll(".card");
@@ -28,7 +27,6 @@ export function renderLevelCard(numCards) {
     setTimeout(() => {
       card.classList.remove("open");
       card.style.backgroundImage = `url(/static/img/shirt.jpg)`;
-      timerInterval = setInterval(startTimer, 100);
     }, 5000);
     card.addEventListener("click", () => {
       if (openedCards.length < 2) {
@@ -63,13 +61,11 @@ export function renderLevelCard(numCards) {
               secondCard.style.backgroundImage = `url(/static/img/shirt.jpg)`;
               openedCards = [];
               renderLost();
-              clearInterval(timerInterval);
-              stopTimer();
             }, 1000);
           }
-          clearInterval(timerInterval);
         }
       }
     });
   });
+  setTimeout(startTimer, 5000);
 }

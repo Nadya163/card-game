@@ -1,3 +1,5 @@
+import { renderModal } from "./render-modal.js";
+
 export function renderHeader() {
     const headerElement = document.querySelector(".header");
     const headerHtml = `
@@ -17,17 +19,38 @@ export function renderHeader() {
   <button class="game-begin">Начать заново</button>
     `;
     headerElement.innerHTML = headerHtml;
-}
+  headerElement.classList.remove("hide");
+  
+  const buttonElement = document.querySelector(".game-begin");
+  const modal = document.querySelector(".modal");
+  const gameLevelElement = document.querySelector(".game-level");
+
+  buttonElement.addEventListener('click', () => {
+    stopTimer();
+    lastMinutes = 0;
+    lastSeconds = 0;
+    modal.style.display = "";
+    headerElement.classList.add("hide");
+    gameLevelElement.classList.add("hide");
+    renderModal();
+    console.log("клик");
+  });
+  }
 
 let minutes = 0;
 let seconds = 0;
 let startTime = null;
 let interval;
+let lastMinutes = 0;
+let lastSeconds = 0;
 
 export function startTimer() {
+  console.log(1);
   if (!startTime) {
     startTime = performance.now();
   }
+  minutes = lastMinutes;
+  seconds = lastSeconds;
 
   interval = setInterval(() => {
     const elapsed = Math.floor((performance.now() - startTime) / 1000);
@@ -45,5 +68,22 @@ function updateTimer() {
 }
 
 export function stopTimer() {
+  startTime = null;
   clearInterval(interval);
+  lastMinutes = minutes;
+  lastSeconds = seconds;
+  minutes = 0;
+  seconds = 0;
+  updateTimer();
 }
+
+function formatTime(minutes, seconds) {
+  const formattedMinutes = minutes > 9 ? minutes : "0" + minutes;
+  const formattedSeconds = seconds > 9 ? seconds : "0" + seconds;
+  return `${formattedMinutes}.${formattedSeconds}`;
+}
+
+export function formTime() {
+  return formatTime(lastMinutes, lastSeconds);
+}
+

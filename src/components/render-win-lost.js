@@ -1,5 +1,5 @@
 import { renderModal } from "./render-modal.js";
-import { stopTimer } from "./render-header.js";
+import { stopTimer, formTime } from "./render-header.js";
 
 export function renderWin() {
   const winElement = document.querySelector(".modal-win-lost");
@@ -13,7 +13,7 @@ export function renderWin() {
   </div>
   <div class="menu-timer">
     <p class="timer-text">Затраченное время:</p>
-    <p class="timer-text-time">01.20</p>
+    <p class="timer-text-time">${formTime()}</p>
   </div>
   <button class="game-restart">Играть снова</button>
 </div>
@@ -28,7 +28,7 @@ export function renderWin() {
 
   buttonElement.addEventListener("click", () => {
     gameLevelElement.innerHTML = "";
-    headerElement.innerHTML = "";
+    headerElement.classList.add("hide");
     modal.style.display = "";
     winElement.classList.remove("open");
     stopTimer();
@@ -49,7 +49,7 @@ export function renderLost() {
     </div>
     <div class="menu-timer">
       <p class="timer-text">Затраченное время:</p>
-      <p class="timer-text-time">01.20</p>
+      <p class="timer-text-time">${formTime()}</p>
     </div>
     <button class="game-restart">Играть снова</button>
     </div>
@@ -64,7 +64,7 @@ export function renderLost() {
 
   buttonElement.addEventListener("click", () => {
     gameLevelElement.innerHTML = "";
-    headerElement.innerHTML = "";
+    headerElement.classList.add("hide");
     modal.style.display = "";
     lostElement.classList.remove("open");
     stopTimer();
