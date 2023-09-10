@@ -1,5 +1,5 @@
-export function generateArray(array, initialCount) {
-  let newArray = [];
+export function generateArray(array: string[], initialCount: number): string[] {
+  let newArray: string[] = [];
 
   for (let i = 0; i < initialCount / 2; i++) {
     newArray.push(array[Math.floor(Math.random() * array.length)]);
@@ -11,7 +11,7 @@ export function generateArray(array, initialCount) {
   return newArray;
 }
 
-function shuffleArray(array) {
+function shuffleArray(array: string[]) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
@@ -19,7 +19,7 @@ function shuffleArray(array) {
   return array;
 }
   
-export function createCardArray(initialCount) {
+export function createCardArray(initialCount: number) {
   const cards = [
     "/static/img/sixDiamonds.jpg",
     "/static/img/sixCross.jpg",

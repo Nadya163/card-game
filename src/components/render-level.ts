@@ -1,9 +1,9 @@
 import { renderHeader, startTimer } from "./render-header";
-import { generateArray, createCardArray } from "./array-img.js";
-import { renderLost, renderWin } from "./render-win-lost.js";
+import { generateArray, createCardArray } from "./array-img";
+import { renderLost, renderWin } from "./render-win-lost";
 
-export function renderLevelCard(numCards) {
-  const cardElement = document.querySelector(".game-level");
+export function renderLevelCard(numCards: number) {
+  const cardElement = document.querySelector(".game-level") as HTMLDivElement;
   let cardHtml = `<div class="level">`;
 
   for (let i = 1; i <= numCards; i++) {
@@ -15,10 +15,10 @@ export function renderLevelCard(numCards) {
   cardElement.classList.remove("hide");
   renderHeader();
 
-  const cards = document.querySelectorAll(".card");
+  const cards = document.querySelectorAll<HTMLDivElement>(".card");
   const cardCreate = generateArray(createCardArray(numCards), numCards);
   console.log(cardCreate);
-  let openedCards = [];
+  let openedCards: HTMLDivElement[] = [];
 
   cards.forEach((card, index) => {
     card.classList.add("open");

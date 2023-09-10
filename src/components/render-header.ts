@@ -1,7 +1,7 @@
-import { renderModal } from "./render-modal.js";
+import { renderModal } from "./render-modal";
 
 export function renderHeader() {
-    const headerElement = document.querySelector(".header");
+    const headerElement = document.querySelector(".header") as HTMLDivElement;
     const headerHtml = `
   <div class="timer">
     <div class="timer-box">
@@ -18,12 +18,13 @@ export function renderHeader() {
   </div>
   <button class="game-begin">Начать заново</button>
     `;
+
     headerElement.innerHTML = headerHtml;
-  headerElement.classList.remove("hide");
+    headerElement.classList.remove("hide");
   
-  const buttonElement = document.querySelector(".game-begin");
-  const modal = document.querySelector(".modal");
-  const gameLevelElement = document.querySelector(".game-level");
+  const buttonElement = document.querySelector(".game-begin") as HTMLButtonElement;
+  const modal = document.querySelector(".modal") as HTMLDivElement;
+  const gameLevelElement = document.querySelector(".game-level") as HTMLDivElement;
 
   buttonElement.addEventListener('click', () => {
     stopTimer();
@@ -39,8 +40,8 @@ export function renderHeader() {
 
 let minutes = 0;
 let seconds = 0;
-let startTime = null;
-let interval;
+let startTime: number = 0;
+let interval: NodeJS.Timeout | undefined;
 let lastMinutes = 0;
 let lastSeconds = 0;
 
@@ -61,14 +62,16 @@ export function startTimer() {
 }
 
 function updateTimer() {
-  const minutesElement = document.querySelector(".interval.minutes");
-  const secondsElement = document.querySelector(".interval.seconds");
-  minutesElement.innerHTML = minutes > 9 ? minutes : "0" + minutes;
-  secondsElement.innerHTML = seconds > 9 ? seconds : "0" + seconds;
+  const minutesElement = document.querySelector(".interval.minutes") as HTMLSpanElement;
+  const secondsElement = document.querySelector(".interval.seconds") as HTMLSpanElement;
+  const formatMinutes = minutes > 9 ? minutes.toString() : "0" + minutes.toString();
+  const formatSeconds = seconds > 9 ? seconds.toString() : "0" + seconds.toString();
+  minutesElement.innerHTML = formatMinutes;
+  secondsElement.innerHTML = formatSeconds;
 }
 
 export function stopTimer() {
-  startTime = null;
+  startTime = 0;
   clearInterval(interval);
   lastMinutes = minutes;
   lastSeconds = seconds;
@@ -77,7 +80,7 @@ export function stopTimer() {
   updateTimer();
 }
 
-function formatTime(minutes, seconds) {
+function formatTime(minutes: number, seconds: number) {
   const formattedMinutes = minutes > 9 ? minutes : "0" + minutes;
   const formattedSeconds = seconds > 9 ? seconds : "0" + seconds;
   return `${formattedMinutes}.${formattedSeconds}`;
