@@ -3,6 +3,7 @@ import { stopTimer, formTime } from "./render-header";
 
 export function renderWin() {
   const winElement = document.querySelector(".modal-win-lost") as HTMLDivElement;
+  stopTimer();
   const winHtml = `
 <div class="modal-box-win-lost">
   <div class="win-lost-img">
@@ -32,7 +33,6 @@ export function renderWin() {
     headerElement.classList.add("hide");
     modal.style.display = "";
     winElement.classList.remove("open");
-    stopTimer();
     renderModal();
   })
 }
@@ -68,7 +68,6 @@ export function renderLost() {
     headerElement.classList.add("hide");
     modal.style.display = "";
     lostElement.classList.remove("open");
-    stopTimer();
     renderModal();
   })
 } 
