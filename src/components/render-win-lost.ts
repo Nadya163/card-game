@@ -1,8 +1,9 @@
-import { stopTimer } from "./render-header.js";
-import { renderModal } from "./render-modal.js";
+import { renderModal } from "./render-modal";
+import { stopTimer, formTime } from "./render-header";
 
 export function renderWin() {
-  const winElement = document.querySelector(".modal-win-lost");
+  const winElement = document.querySelector(".modal-win-lost") as HTMLDivElement;
+  stopTimer();
   const winHtml = `
 <div class="modal-box-win-lost">
   <div class="win-lost-img">
@@ -13,31 +14,32 @@ export function renderWin() {
   </div>
   <div class="menu-timer">
     <p class="timer-text">Затраченное время:</p>
-    <p class="timer-text-time">01.20</p>
+    <p class="timer-text-time">${formTime()}</p>
   </div>
   <button class="game-restart">Играть снова</button>
 </div>
 `;
-  winElement.innerHTML = winHtml;
+
+  winElement.innerHTML = winHtml as string;
   winElement.classList.add("open");
 
-  const modal = document.querySelector(".modal");
-  const buttonElement = document.querySelector(".game-restart");
-  const gameLevelElement = document.querySelector(".game-level");
-  const headerElement = document.querySelector(".header");
+  const modal = document.querySelector(".modal") as HTMLDivElement;
+  const buttonElement = document.querySelector(".game-restart") as HTMLButtonElement;
+  const gameLevelElement = document.querySelector(".game-level") as HTMLDivElement;
+  const headerElement = document.querySelector(".header") as HTMLDivElement;
 
   buttonElement.addEventListener("click", () => {
     gameLevelElement.innerHTML = "";
-    headerElement.innerHTML = "";
+    headerElement.classList.add("hide");
     modal.style.display = "";
     winElement.classList.remove("open");
-    
     renderModal();
   })
 }
 
 export function renderLost() {
-  const lostElement = document.querySelector(".modal-win-lost");
+  const lostElement = document.querySelector(".modal-win-lost") as HTMLDivElement;
+  stopTimer();
   const lostHtml = `
   <div class="modal-box-win-lost">
   <div class="win-lost-img">
@@ -48,7 +50,7 @@ export function renderLost() {
     </div>
     <div class="menu-timer">
       <p class="timer-text">Затраченное время:</p>
-      <p class="timer-text-time">01.20</p>
+      <p class="timer-text-time">${formTime()}</p>
     </div>
     <button class="game-restart">Играть снова</button>
     </div>
@@ -56,17 +58,16 @@ export function renderLost() {
   lostElement.innerHTML = lostHtml;
   lostElement.classList.add("open");
 
-  const modal = document.querySelector(".modal");
-  const buttonElement = document.querySelector(".game-restart");
-  const gameLevelElement = document.querySelector(".game-level");
-  const headerElement = document.querySelector(".header");
+  const modal = document.querySelector(".modal") as HTMLDivElement;
+  const buttonElement = document.querySelector(".game-restart") as HTMLButtonElement;
+  const gameLevelElement = document.querySelector(".game-level") as HTMLDivElement;
+  const headerElement = document.querySelector(".header") as HTMLDivElement;
 
   buttonElement.addEventListener("click", () => {
     gameLevelElement.innerHTML = "";
-    headerElement.innerHTML = "";
+    headerElement.classList.add("hide");
     modal.style.display = "";
     lostElement.classList.remove("open");
-    stopTimer();
     renderModal();
   })
 } 

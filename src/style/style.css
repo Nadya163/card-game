@@ -288,4 +288,7 @@ line-height: 72px;
 .modal-win-lost.open .modal-box-win-lost {
   transform: scale(1);
 }
-  
+
+.hide {
+  display: none;
+}

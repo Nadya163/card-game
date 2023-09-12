@@ -1,7 +1,7 @@
-import { renderLevelCard } from "./render-level.js";
+import { renderLevelCard } from "./render-level";
 
 export function renderModal() {
-  const modalElement = document.querySelector(".modal");
+  const modalElement = document.querySelector(".modal") as HTMLDivElement;
   const modalHtml = `
     <div class="modal-box">
     <form>
@@ -28,8 +28,8 @@ export function renderModal() {
     `;
   modalElement.innerHTML = modalHtml;
 
-  const form = document.querySelector("form");
-  const modal = document.querySelector(".modal");
+  const form = document.querySelector("form") as HTMLFormElement;
+  const modal = document.querySelector(".modal") as HTMLDivElement;
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -37,7 +37,7 @@ export function renderModal() {
 
     const choiceDifficulty = document.querySelector(
       'input[name="difficulty"]:checked'
-    );
+    ) as HTMLInputElement;
 
     if (choiceDifficulty) {
       const difficulty = choiceDifficulty.value;
