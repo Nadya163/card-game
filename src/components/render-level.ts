@@ -16,7 +16,7 @@ export function renderLevelCard(numCards: number) {
   renderHeader();
 
   const cards = document.querySelectorAll<HTMLDivElement>(".card");
-  const cardCreate = generateArray(createCardArray(numCards), numCards);
+  const cardCreate = generateArray(createCardArray(numCards));
   console.log(cardCreate);
   let openedCards: HTMLDivElement[] = [];
 
