@@ -1,4 +1,7 @@
+/* stylelint-disable prettier/prettier */
+/* stylelint-disable alpha-value-notation */
 @font-face {
+  /* stylelint-disable font-family-no-missing-generic-family-keyword */
   font-family: StratosSkyeng;
   src: url("./stratosskyeng-regular.otf");
 }
@@ -6,7 +9,7 @@
 * {
   margin: 0;
   padding: 0;
- }
+}
 
 body {
   background: var(--blue-120, #004980);
@@ -208,7 +211,6 @@ button:hover {
 
 .box-text-result {
   margin-top: 9px;
-
 }
 
 .text-resulte {
@@ -263,6 +265,7 @@ button:hover {
   align-items: center;
   justify-content: center;
   visibility: hidden;
+  /* stylelint-disable-next-line color-function-notation */
   background-color: rgba(0, 73, 128, 0.8);
   opacity: 0;
   transition: opacity 0.4s, visibility 0.4s;
