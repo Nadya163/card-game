@@ -1,20 +1,32 @@
 {
     "env": {
-        "browser": true,
-        "es6": true,
-        "node": true
+      "browser": true,
+      "es6": true,
+      "node": true,
+      "jest": true
     },
-    "extends": ["eslint:recommended", "prettier"],
-    "plugins": ["prettier"],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:jest/recommended",
+      "prettier",
+      "prettier/@typescript-eslint"
+    ],
+    "plugins": ["prettier", "@typescript-eslint", "jest"],
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "ecmaVersion": 2020,
-        "sourceType": "module"
+      "ecmaVersion": 2020,
+      "sourceType": "module",
+      "project": "./tsconfig.json"
     },
     "rules": {
-        "prettier/prettier": ["error", {
-            "endOfLine": "auto"
-        }],
-        "camelcase": ["error"],
-        "eqeqeq": ["error", "always"]
+      "prettier/prettier": [
+        "error",
+        {
+          "endOfLine": "auto"
+        }
+      ],
+      "camelcase": ["error"],
+      "eqeqeq": ["error", "always"]
     }
-}
+  }

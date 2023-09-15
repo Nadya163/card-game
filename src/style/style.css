@@ -213,12 +213,12 @@ button:hover {
 
 .text-resulte {
   color: var(--blue-120, #004980);
-font-variant-numeric: lining-nums proportional-nums;
-font-family: StratosSkyeng;
-font-size: 40px;
-font-style: normal;
-font-weight: 400;
-line-height: 48px;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: StratosSkyeng;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 48px;
 }
 
 .menu-timer {
@@ -230,22 +230,22 @@ line-height: 48px;
 
 .timer-text {
   color: #000;
-font-variant-numeric: lining-nums proportional-nums;
-font-family: StratosSkyeng;
-font-size: 24px;
-font-style: normal;
-font-weight: 400;
-line-height: 32px;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: StratosSkyeng;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
 }
 
 .timer-text-time {
   padding-top: 10px;
   color: #000;
-font-family: StratosSkyeng;
-font-size: 64px;
-font-style: normal;
-font-weight: 400;
-line-height: 72px;
+  font-family: StratosSkyeng;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 72px;
 }
 
 .game-restart {
